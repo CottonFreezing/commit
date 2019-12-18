@@ -1,0 +1,43 @@
+ur,li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+	width: 100%;
+}
+
+body  {
+	background-image: url(../img/demo-1-bg.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed; 
+	font-family:  Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Noto Sans CJK SC,WenQuanYi Micro Hei,Arial,sans-serif;
+	font-size: 16px;
+	
+}
+.container{
+	background-color: rgba(40,40,40,0.5);
+
+}
+.page-head h2{
+	color: white;
+}
+.c-center {
+	
+	padding:10px 20px;
+	background-color: rgba(1,1,1,0.3);
+}
+
+.user{
+	color: white;
+}
+.com-show {
+	background-color: rgba(1,1,1,0.3);
+	padding:0 18.5px;
+	font-size: 18px;
+}
+
+.com-show li{
+	border: 1px solid midnightblue;
+	background-color: rgba(255,255,255,0.9);
+}
+

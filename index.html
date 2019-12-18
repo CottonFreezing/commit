@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>评论区</title>
+		<link rel="stylesheet" href="css/demo.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/vue-resource.js"></script>
+		<script type="text/javascript" src="js/vue-router.js" ></script>
+		<script type="text/javascript" src="js/axios.js" ></script>
+		
+		
+
+	</head>
+
+	<body>
+		<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<symbol id="icon-heart1" viewBox="0 0 32 32">
+			<title>点赞</title>
+			<path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
+		</symbol>
+		<symbol id="icon-user" viewBox="0 0 32 32">
+			<title>user</title>
+			<path d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z"></path>
+		</symbol>
+				
+		<div class="container">
+			<div class="page-head">
+				<h2>评论区</h2>
+			</div>
+
+			<!--输入评论区组件-->
+			<template id="tmp">
+				<div class="c-center">
+				
+
+					<div class="form-group  ">
+						<label for="name" class="user">用户名</label>
+						<input type="text" id="name" name="name" placeholder="输入用户名" v-model="name" />
+						<span><!--表单校验--></span>
+					</div>
+
+					<div class="form-group col-12 ">
+						<textarea  name="content" id="content" cols="140" rows="8" maxlength="500" class="col-12 " placeholder="请输入500字以内" v-model="content" style="resize: none;" @input="descInput" v-model="content"></textarea>
+						<span style="color: #fff ;font: 12px;" id="show">{{this.zi}}/500</span>
+					</div>
+
+					<div class="form-group col-2 offset-10" >
+						<button id="submit" class="btn btn-primary btn-xs" @click="get()">发表评论</button>
+						
+					</div>
+
+				
+				</div>
+			</template>
+			
+			<!--点赞组件-->
+			<template id="like">
+				<div >
+					
+					<svg ref = "myzan" class="icon icon-heart1 " @click="zan "><use xlink:href="#icon-heart1"></use></svg>							
+								
+									<span>{{this.count}}</span>
+				</div>					
+			</template>
+
+			<!--评论显示点赞区-->
+			<div id="app">
+				<cmt-box @func = "loadComments"></cmt-box>
+				<div class="com-show">
+
+					<ul class="list-group">
+						
+						<li class="list-group-item row" v-for="item in list" :key="item.id">
+							<span class="col-1"><svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg></span>
+							<span class="badge col-2" style="text-align: left;">{{item.name}}</span> 
+							<span class="col-10 offset-1 row" style="text-align: left;">{{item.content}}</span>
+							<span class="row col-2 offset-11">
+								<like-box></like-box>	
+							
+							</span>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+<script type="text/javascript" src="js/main.js" ></script>
+</body>
+
+</html>
